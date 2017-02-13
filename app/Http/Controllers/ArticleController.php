@@ -6,6 +6,7 @@ use App\Article;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+
 class ArticleController extends Controller
 {
     public function __construct()
