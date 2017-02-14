@@ -8,6 +8,14 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <!-- BALISE META -->
+    <meta property="og:url"           content="{{url()->current()}}" />
+    <meta property="og:type"          content="Laravel" />
+    <meta property="og:title"         content="Rendu laravel" />
+    <meta property="og:description"   content="Ceci est un petit test du rendu laravel" />
+    <meta property="og:image"         content="16508444_1398412953531592_787812854461434763_n.jpg" />
+</head>
+
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
@@ -21,6 +29,14 @@
     </script>
 </head>
 <body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.8";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
 <div id="app">
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
