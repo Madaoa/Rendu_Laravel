@@ -4,17 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use App\Comment;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 use Symfony\Component\HttpFoundation\Request;
 
 
-class ArticleController extends Controller
+class CommentController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth')->except('show', 'index');
-    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -22,9 +19,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::paginate(10);
-
-        return view('articles.index', compact('articles'));
+        //
     }
 
     /**
@@ -34,111 +29,108 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return view('articles.create');
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param \Illuminate\Http\Request|Request $request
+     * @param $post_id
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         $this->validate($request,
             [
-                'title' => 'required|min:5',
-                'content' => 'required|min:10'
+                'content' => 'required|min:1'
             ],
             [
-                'title.required' => 'Titre requis',
-                'title.min' => 'Minimum 5 caractères',
-
                 'content.required' => 'Contenu requis',
-                'content.min' => 'Minimum 10 caractères'
+                'content.min' => 'Minimum 1 caractères'
             ]);
 
-        $article = new Article();
+        $comment = new Comment();
         $input = $request->input();
-        $input['user_id'] = Auth::user()->id;
 
-        $article
+
+        $comment
             ->fill($input)
             ->save();
 
-        return redirect()->route('article.index')->with('success', 'L\'article a bien été publié');;
+
+
+        $id = $input['post_id'];
+        return redirect()->route('article.show', compact('id'))
+            ->with('success', 'Le commentaire a bien été ajouté !');
     }
+
 
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $article = Article::find($id);
-        $comments = Comment::orderBy('id', 'DESC')->paginate(3);
-        return view('articles.show', compact('article','comments'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $article = Article::find($id);
-        return view('articles.edit', compact('article'));
+        $comment = Comment::find($id);
+        return view('comments.edit', compact('comment'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  int $id
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
         $this->validate($request,
             [
-                'title' => 'required|min:5',
                 'content' => 'required|min:10'
             ],
             [
-                'title.required' => 'Titre requis',
-                'title.min' => 'Minimum 5 caractères',
-
                 'content.required' => 'Contenu requis',
                 'content.min' => 'Minimum 10 caractères'
             ]);
 
-        $article = Article::find($id);
+        $comment = Comment::find($id);
         $input = $request->input();
 
-        $article
+        $comment
             ->fill($input)
             ->save();
 
-        return redirect()->route('article.index')->with('success', 'L\'article a bien été modifié');;
+
+        return redirect()->route('article.index')
+            ->with('success', 'Le commentaire a bien été modifié !');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $article = Article::find($id);
-        $article->delete();
+        $comment = Comment::find($id);
+        $comment->delete();
 
-        return redirect()->route('article.index')->with('success', 'L\'article a bien été supprimé');
+
+        return Redirect::back()->with('success', 'Le commentaire a bien été supprimé !');
     }
-
-
 }
