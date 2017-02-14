@@ -13,7 +13,7 @@
     <meta property="og:type"          content="Laravel" />
     <meta property="og:title"         content="Rendu laravel" />
     <meta property="og:description"   content="Ceci est un petit test du rendu laravel" />
-    <meta property="og:image"         content="16508444_1398412953531592_787812854461434763_n.jpg" />
+    <meta property="og:image"         content="https://choualbox.com/Img/1487082415346.png" />
 </head>
 
     <title>{{ config('app.name', 'Laravel') }}</title>
