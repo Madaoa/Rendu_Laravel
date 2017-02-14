@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ForeignKeys extends Migration
+class FkComments extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class ForeignKeys extends Migration
      */
     public function up()
     {
-        Schema::table('articles', function(Blueprint $table) {
-           $table->foreign('user_id')->references('id')->on('users');
+        Schema::table('comments', function(Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('post_id')->references('id')->on('articles');
         });
-
-
     }
 
     /**
