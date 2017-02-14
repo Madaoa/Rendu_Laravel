@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers;
 use App\Article;
+
+use App\Comment;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Symfony\Component\HttpFoundation\Request;
 use App\Http\Requests;
 use App\Image;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Carbon\Carbon;
+
 
 
 class ArticleController extends Controller
@@ -90,7 +94,8 @@ class ArticleController extends Controller
     public function show($id)
     {
         $article = Article::find($id);
-        return view('articles.show', compact('article'));
+        $comments = Comment::orderBy('id', 'DESC')->paginate(3);
+        return view('articles.show', compact('article','comments'));
     }
 
     /**
@@ -163,4 +168,6 @@ class ArticleController extends Controller
 
         return redirect()->route('article.index')->with('success', 'L\'article a bien été supprimé');
     }
+
+
 }
