@@ -4,10 +4,20 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "type": "project",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/maddhatter/html.git"
+        }
+    ],
     "require": {
         "php": ">=5.6.4",
+        "guzzlehttp/guzzle": "^6.2",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
+<<<<<<< HEAD
+        "laravelcollective/html": "^5.4"
+=======
         "illuminate/html": "5.0.*@dev",
         "illuminate/contracts": "5.4.*",
         "illuminate/support": "5.4.*",
@@ -15,6 +25,7 @@
         "symfony/finder": "~3.2",
         "symfony/http-foundation": "~3.2",
         "illuminate/session": "5.4.9"
+>>>>>>> 5aa8dbb60089823a2291da0f7923ffa2e9f04441
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

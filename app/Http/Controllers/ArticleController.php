@@ -1,12 +1,17 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Article;
+
 use App\Comment;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Symfony\Component\HttpFoundation\Request;
+use App\Http\Requests;
+use App\Image;
+use Illuminate\Support\Facades\Input;
+use Carbon\Carbon;
+
 
 
 class ArticleController extends Controller
@@ -45,10 +50,14 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
+        $image = new Article();
+        $input = $request->input();
+        $input['user_id'] = Auth::user()->id;
         $this->validate($request,
             [
                 'title' => 'required|min:5',
-                'content' => 'required|min:10'
+                'content' => 'required|min:10',
+                'image' => 'required'
             ],
             [
                 'title.required' => 'Titre requis',
@@ -57,15 +66,22 @@ class ArticleController extends Controller
                 'content.required' => 'Contenu requis',
                 'content.min' => 'Minimum 10 caractères'
             ]);
+        $image->title = $request->title;
+        $image->content = $request->content;
+        if ($request->hasFile('image')) {
+            $file = Input::file('image');
+            //getting timestamp
+            $timestamp = str_replace([' ', ':'], '-', Carbon::now()->toDateTimeString());
 
-        $article = new Article();
-        $input = $request->input();
-        $input['user_id'] = Auth::user()->id;
+            $name = $timestamp . '-' . $file->getClientOriginalName();
 
-        $article
+            $image->filePath = $name;
+
+            $file->move(public_path() . '/images/', $name);
+        }
+        $image
             ->fill($input)
             ->save();
-
         return redirect()->route('article.index')->with('success', 'L\'article a bien été publié');;
     }
 
@@ -103,10 +119,14 @@ class ArticleController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $image = new Article();
+        $input = $request->input();
+        $input['user_id'] = Auth::user()->id;
         $this->validate($request,
             [
                 'title' => 'required|min:5',
-                'content' => 'required|min:10'
+                'content' => 'required|min:10',
+                'image' => 'required'
             ],
             [
                 'title.required' => 'Titre requis',
@@ -115,11 +135,20 @@ class ArticleController extends Controller
                 'content.required' => 'Contenu requis',
                 'content.min' => 'Minimum 10 caractères'
             ]);
+        $image->title = $request->title;
+        $image->content = $request->content;
+        if ($request->hasFile('image')) {
+            $file = Input::file('image');
+            //getting timestamp
+            $timestamp = str_replace([' ', ':'], '-', Carbon::now()->toDateTimeString());
 
-        $article = Article::find($id);
-        $input = $request->input();
+            $name = $timestamp . '-' . $file->getClientOriginalName();
 
-        $article
+            $image->filePath = $name;
+
+            $file->move(public_path() . '/images/', $name);
+        }
+        $image
             ->fill($input)
             ->save();
 

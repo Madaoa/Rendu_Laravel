@@ -25,6 +25,9 @@
                                 <textarea name="content" placeholder="Votre contenu"
                                           class="form-control">{{ $article->content }}</textarea>
                             </div>
+                            <div class="form-group">
+                                <input type="file" name="image" value="{{ $article->filePath }}">
+                            </div>
 
                             <input type="submit" value="Publier" class="btn btn-info">
                         </form>

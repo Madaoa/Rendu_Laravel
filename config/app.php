@@ -77,7 +77,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'fr',
 
     /*
     |--------------------------------------------------------------------------
@@ -228,9 +228,11 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Carbon' => Carbon\Carbon::class,
         'Form'=> Illuminate\Html\FormFacade::class,
         'HTML'=> Illuminate\Html\HtmlFacade::class,
         'Input' => Illuminate\Support\Facades\Input::class,
+
 
     ],
 
