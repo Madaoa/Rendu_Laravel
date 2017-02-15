@@ -18,6 +18,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+Route::post('article/{id}/like', ['as' => 'article.like', 'uses' => 'ArticleController@like']);
+Route::post('article/{id}/unlike', ['as' => 'article.unlike', 'uses' => 'ArticleController@unlike']);
 Route::resource('/article', 'ArticleController');
 Route::resource('/comment', 'CommentController');
 
@@ -33,10 +35,5 @@ Route::get('/admin', function() {
 Route::get('/upload', function() {
     return View::make('imageupload');
 });
-Route::post('apply/upload', 'ImageController@upload');
 
-
-Route::get('imageUploadForm', 'ImageController@upload' );
-Route::post('imageUploadForm', 'ImageController@store' );
-Route::get('showLists', 'ImageController@show' );
 

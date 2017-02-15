@@ -29,9 +29,21 @@
                             <br><br>
                         </form>
 
+                        Nombre de likes : {{$article->likeCount}}
+                        @if( $article->liked() )
+                            <form method="POST" action="{{ route('article.unlike', $article->id) }}">
+                                {{ csrf_field() }}
+                                <input type="submit" value="Unlike" class="btn btn-danger">
+                            </form>
+                        @else
+                            <form method="POST" action="{{ route('article.like', $article->id) }}">
+                                {{ csrf_field() }}
+                                <input type="submit" value="Like" class="btn btn-success">
+                            </form>
+                        @endif
+
                         <form method="POST" action="{{ route('comment.store')}}">
                             {{ csrf_field() }}
-
                             <div class="form-group">
                                 <textarea name="content" placeholder="Votre commentaire" class="form-control"></textarea>
                             </div>
@@ -47,30 +59,31 @@
 
 
 
-                        @foreach($comments as $comment)
+                    @foreach($comments as $comment)
 
 
                             @if($comment->post_id == $article->id)
 
-                                    <div>
-                                        <strong>Par {{$comment->user->name}}</strong> -
-                                        le {{date('d/m/Y', strtotime($comment->created_at))}} à
-                                        {{date('H:m:s', strtotime($comment->created_at))}}
-                                        <br>
-                                        {{ $comment->content }}
-                                        @if(Auth::user()->id == $comment->user->id)
-                                            <a href="{{ route('comment.edit', $comment->id) }}" class="btn btn-primary">Modifier</a>
-                                            <form method="POST" action="{{ route('comment.destroy', $comment->id) }}">
-                                                {{ csrf_field() }}
-                                                <input type="hidden" name="_method" value="delete">
-                                                <input type="submit" value="Supprimer" class="btn btn-danger">
-                                                <br><br>
-                                            </form>
-                                        @endif
+                                <div>
+                                    <strong>Par {{$comment->user->name}}</strong> -
+                                    le {{date('d/m/Y', strtotime($comment->created_at))}} à
+                                    {{date('H:m:s', strtotime($comment->created_at))}}
+                                    <br>
+                                    {{ $comment->content }}
 
-                                        <br><br>
-                                    </div>
-                                @else
+                                    @if(Auth::user()->id == $comment->user->id)
+                                        <a href="{{ route('comment.edit', $comment->id) }}" class="btn btn-primary">Modifier</a>
+                                        <form method="POST" action="{{ route('comment.destroy', $comment->id) }}">
+                                            {{ csrf_field() }}
+                                            <input type="hidden" name="_method" value="delete">
+                                            <input type="submit" value="Supprimer" class="btn btn-danger">
+                                            <br><br>
+                                        </form>
+                                    @endif
+
+                                    <br><br>
+                                </div>
+                            @else
                             @endif
                         @endforeach
                         {{ $comments->links() }}
