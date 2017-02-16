@@ -119,38 +119,19 @@ class ArticleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $image = new Article();
-        $input = $request->input();
-        $input['user_id'] = Auth::user()->id;
-        $this->validate($request,
-            [
-                'title' => 'required|min:5',
-                'content' => 'required|min:10',
-                'image' => 'required'
-            ],
-            [
-                'title.required' => 'Titre requis',
-                'title.min' => 'Minimum 5 caractères',
+        $expense = Article::find($request->input('id'));
+        $expense->fill($request->only('id','title','content','filePath','user_id','created_at','updated_at'));
 
-                'content.required' => 'Contenu requis',
-                'content.min' => 'Minimum 10 caractères'
-            ]);
-        $image->title = $request->title;
-        $image->content = $request->content;
-        if ($request->hasFile('image')) {
-            $file = Input::file('image');
-            //getting timestamp
-            $timestamp = str_replace([' ', ':'], '-', Carbon::now()->toDateTimeString());
+        if($request->hasFile('filePath')) {
 
-            $name = $timestamp . '-' . $file->getClientOriginalName();
+            $file = $request->file('filePath');
 
-            $image->filePath = $name;
-
+            $name = time() . '-' . $file->getClientOriginalName();
+            $expense->filePath = $name;
             $file->move(public_path() . '/images/', $name);
         }
-        $image
-            ->fill($input)
-            ->save();
+
+        $expense->save();
 
         return redirect()->route('article.index')->with('success', 'L\'article a bien été modifié');;
     }

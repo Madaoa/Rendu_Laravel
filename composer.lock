@@ -4,11 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-    "content-hash": "6727fc2807b871c60ad64c2ab676e136",
-=======
-    "content-hash": "e7d74ed275c618b4db31865690ab6c5a",
->>>>>>> 5aa8dbb60089823a2291da0f7923ffa2e9f04441
+    "content-hash": "ec1707be075855e1a2ce60a55c352786",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -153,7 +149,6 @@
             "time": "2016-11-02T15:56:58+00:00"
         },
         {
-<<<<<<< HEAD
             "name": "guzzlehttp/guzzle",
             "version": "6.2.2",
             "source": {
@@ -176,31 +171,10 @@
                 "ext-curl": "*",
                 "phpunit/phpunit": "^4.0",
                 "psr/log": "^1.0"
-=======
-            "name": "illuminate/html",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/html.git",
-                "reference": "3d1009bb8e0f25720c914af5c1f4015dd373c9ef"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/html/zipball/3d1009bb8e0f25720c914af5c1f4015dd373c9ef",
-                "reference": "3d1009bb8e0f25720c914af5c1f4015dd373c9ef",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/http": "~5.0",
-                "illuminate/session": "~5.0",
-                "illuminate/support": "~5.0",
-                "php": ">=5.4.0"
->>>>>>> 5aa8dbb60089823a2291da0f7923ffa2e9f04441
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-<<<<<<< HEAD
                     "dev-master": "6.2-dev"
                 }
             },
@@ -268,17 +242,6 @@
                 },
                 "files": [
                     "src/functions_include.php"
-=======
-                    "dev-master": "5.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Illuminate\\Html\\": ""
-                },
-                "files": [
-                    "helpers.php"
->>>>>>> 5aa8dbb60089823a2291da0f7923ffa2e9f04441
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -287,7 +250,6 @@
             ],
             "authors": [
                 {
-<<<<<<< HEAD
                     "name": "Michael Dowling",
                     "email": "mtdowling@gmail.com",
                     "homepage": "https://github.com/mtdowling"
@@ -322,62 +284,20 @@
             },
             "require-dev": {
                 "phpunit/phpunit": "~4.0"
-=======
-                    "name": "Taylor Otwell",
-                    "email": "taylorotwell@gmail.com"
-                }
-            ],
-            "abandoned": "laravelcollective/html",
-            "time": "2015-01-01T16:31:18+00:00"
-        },
-        {
-            "name": "illuminate/session",
-            "version": "v5.4.9",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/session.git",
-                "reference": "45079b7cc9252bb19e8ec41c99edea77c2a5289e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/session/zipball/45079b7cc9252bb19e8ec41c99edea77c2a5289e",
-                "reference": "45079b7cc9252bb19e8ec41c99edea77c2a5289e",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/contracts": "5.4.*",
-                "illuminate/support": "5.4.*",
-                "nesbot/carbon": "~1.20",
-                "php": ">=5.6.4",
-                "symfony/finder": "~3.2",
-                "symfony/http-foundation": "~3.2"
-            },
-            "suggest": {
-                "illuminate/console": "Required to use the session:table command (5.4.*)."
->>>>>>> 5aa8dbb60089823a2291da0f7923ffa2e9f04441
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-<<<<<<< HEAD
                     "dev-master": "1.4-dev"
-=======
-                    "dev-master": "5.4-dev"
->>>>>>> 5aa8dbb60089823a2291da0f7923ffa2e9f04441
                 }
             },
             "autoload": {
                 "psr-4": {
-<<<<<<< HEAD
                     "GuzzleHttp\\Psr7\\": "src/"
                 },
                 "files": [
                     "src/functions_include.php"
                 ]
-=======
-                    "Illuminate\\Session\\": ""
-                }
->>>>>>> 5aa8dbb60089823a2291da0f7923ffa2e9f04441
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -385,7 +305,6 @@
             ],
             "authors": [
                 {
-<<<<<<< HEAD
                     "name": "Michael Dowling",
                     "email": "mtdowling@gmail.com",
                     "homepage": "https://github.com/mtdowling"
@@ -399,15 +318,6 @@
                 "uri"
             ],
             "time": "2016-06-24T23:00:38+00:00"
-=======
-                    "name": "Taylor Otwell",
-                    "email": "taylor@laravel.com"
-                }
-            ],
-            "description": "The Illuminate Session package.",
-            "homepage": "https://laravel.com",
-            "time": "2017-01-26T20:28:24+00:00"
->>>>>>> 5aa8dbb60089823a2291da0f7923ffa2e9f04441
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -682,7 +592,6 @@
                 "psysh"
             ],
             "time": "2016-12-30T18:13:17+00:00"
-<<<<<<< HEAD
         },
         {
             "name": "laravelcollective/html",
@@ -737,8 +646,6 @@
             "description": "HTML and Form Builders for the Laravel Framework",
             "homepage": "http://laravelcollective.com",
             "time": "2017-01-26T19:27:05+00:00"
-=======
->>>>>>> 5aa8dbb60089823a2291da0f7923ffa2e9f04441
         },
         {
             "name": "league/flysystem",
@@ -1096,7 +1003,6 @@
                 "random"
             ],
             "time": "2016-11-07T23:38:38+00:00"
-<<<<<<< HEAD
         },
         {
             "name": "psr/http-message",
@@ -1147,8 +1053,6 @@
                 "response"
             ],
             "time": "2016-08-06T14:39:51+00:00"
-=======
->>>>>>> 5aa8dbb60089823a2291da0f7923ffa2e9f04441
         },
         {
             "name": "psr/log",
@@ -3701,9 +3605,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "illuminate/html": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+
 @section('content')
 @if(Session::has('success'))
     <div class="alert alert-success">{{Session::get('success')}}</div>
@@ -11,7 +12,6 @@
                     <div class="panel-heading">{{ $article->title }}</div>
                     <div class="panel-body">
                         {{ $article->content }}
-
                         <br>
                         <br>
 
@@ -29,6 +29,13 @@
                             <br><br>
                         </form>
 
+                        <p>Partager sur :
+                            @include('layouts.share', [
+                                    'url' => request()->fullUrl(),
+                                    'description' => 'This is really cool link',
+                                    'image' => 'http://placehold.it/300x300?text=Cool+link'
+                                ]) </p>
+
                         <form method="POST" action="{{ route('comment.store')}}">
                             {{ csrf_field() }}
 
@@ -40,7 +47,9 @@
 
                             <input type="submit" value="Publier" class="btn btn-info">
 
-                            <div class="fb-share-button" data-href="{{url()->current()}}" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="{{url()->current()}}">Partager</a></div>
+
+
+
 
                         </form>
 

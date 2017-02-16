@@ -29,14 +29,8 @@ Route::get('/admin', function() {
     return view('admin');
 });
 
-
-Route::get('/upload', function() {
-    return View::make('imageupload');
-});
-Route::post('apply/upload', 'ImageController@upload');
-
-
-Route::get('imageUploadForm', 'ImageController@upload' );
-Route::post('imageUploadForm', 'ImageController@store' );
-Route::get('showLists', 'ImageController@show' );
+Route::get('contact',
+    ['as' => 'contact', 'uses' => 'AboutController@create']);
+Route::post('contact',
+    ['as' => 'contact_store', 'uses' => 'AboutController@store']);
 

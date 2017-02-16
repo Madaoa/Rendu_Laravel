@@ -26,7 +26,8 @@
                                           class="form-control">{{ $article->content }}</textarea>
                             </div>
                             <div class="form-group">
-                                <input type="file" name="image" value="{{ $article->filePath }}">
+                                <img src="{!! '/images/'.$article->filePath !!}" alt="">
+                                <input type="file" name="image" >
                             </div>
 
                             <input type="submit" value="Publier" class="btn btn-info">
