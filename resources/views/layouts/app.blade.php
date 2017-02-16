@@ -20,6 +20,8 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
 
     <!-- Scripts -->
     <script>
@@ -74,6 +76,9 @@
                         <li><a href="{{ url('/article') }}">Blog</a></li>
                         <li><a href="{{ url('/article/create') }}">Publier</a></li>
                         <li><a href="{{ url('/user') }}">Profil</a></li>
+                        @if (Auth::user()->isAdmin == 1)
+                            <li><a href="{{ url('/admin') }}">Administration</a></li>
+                        @endif
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-expanded="false">

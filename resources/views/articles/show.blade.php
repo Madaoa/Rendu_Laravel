@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+
 @section('content')
 @if(Session::has('success'))
     <div class="alert alert-success">{{Session::get('success')}}</div>
@@ -12,7 +13,6 @@
                     <div class="panel-heading">{{ $article->title }}</div>
                     <div class="panel-body">
                         {{ $article->content }}
-
                         <br>
                         <br>
 
@@ -20,6 +20,7 @@
                         <div class="table table-bordered bg-success"><img src="{!! '/images/'.$article->filePath !!}"></div>
 
                         <br>
+                        @if(Auth::user()->id==$article->user_id)
                         <a href="{{ route('article.edit', $article->id) }}" class="btn btn-primary">Modifier</a>
 
                         <form method="POST" action="{{ route('article.destroy', $article->id) }}">
@@ -29,6 +30,7 @@
 
                             <br><br>
                         </form>
+                        @endif
 
                         Nombre de likes : {{$article->likeCount}}
                         @if( $article->liked() )
@@ -43,6 +45,14 @@
                             </form>
                         @endif
 
+                        <p>Partager sur :
+                            @include('layouts.share', [
+                                    'url' => request()->fullUrl(),
+                                    'description' => 'This is really cool link',
+                                    'image' => 'http://placehold.it/300x300?text=Cool+link'
+                                ]) </p>
+
+
                         <form method="POST" action="{{ route('comment.store')}}">
                             {{ csrf_field() }}
                             <div class="form-group">
@@ -53,7 +63,9 @@
 
                             <input type="submit" value="Publier" class="btn btn-info">
 
-                            <div class="fb-share-button" data-href="{{url()->current()}}" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="{{url()->current()}}">Partager</a></div>
+
+
+
 
                         </form>
 

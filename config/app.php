@@ -162,9 +162,10 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+
         Illuminate\Html\HtmlServiceProvider::class,
         \Conner\Likeable\LikeableServiceProvider::class,
-
+        Collective\Html\HtmlServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -179,6 +180,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
 
     ],
 
@@ -229,9 +231,9 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Carbon' => Carbon\Carbon::class,
-        'Form'=> Illuminate\Html\FormFacade::class,
-        'HTML'=> Illuminate\Html\HtmlFacade::class,
         'Input' => Illuminate\Support\Facades\Input::class,
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class
 
 
     ],

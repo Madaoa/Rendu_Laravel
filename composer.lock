@@ -4,7 +4,9 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "fb79aeea82da7a345e6540740b43038f",
+
+    "content-hash": "ec1707be075855e1a2ce60a55c352786",
+
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -284,6 +286,7 @@
             },
             "require-dev": {
                 "phpunit/phpunit": "~4.0"
+
             },
             "type": "library",
             "extra": {
@@ -390,17 +393,26 @@
             },
             "suggest": {
                 "illuminate/console": "Required to use the session:table command (5.4.*)."
+
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
+
                     "dev-master": "5.4-dev"
+
+
                 }
             },
             "autoload": {
                 "psr-4": {
                     "Illuminate\\Session\\": ""
                 }
+                    "GuzzleHttp\\Psr7\\": "src/"
+                },
+                "files": [
+                    "src/functions_include.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -415,6 +427,7 @@
             "description": "The Illuminate Session package.",
             "homepage": "https://laravel.com",
             "time": "2017-01-26T20:28:24+00:00"
+
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -3758,9 +3771,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "illuminate/html": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
