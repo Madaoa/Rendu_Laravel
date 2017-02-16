@@ -163,9 +163,15 @@ class ArticleController extends Controller
      */
     public function destroy($id)
     {
+        $comments= Comment::paginate();
         $article = Article::find($id);
-        $article->delete();
+        foreach($comments as $comment){
+            if ($comment['article_id']==$id){
+                $comment->delete();
+            }
+        }
 
+        $article->delete();
         return redirect()->route('article.index')->with('success', 'L\'article a bien été supprimé');
     }
 

@@ -60,7 +60,7 @@ class CommentController extends Controller
 
 
 
-        $id = $input['post_id'];
+        $id = $input['article_id'];
         return redirect()->route('article.show', compact('id'))
             ->with('success', 'Le commentaire a bien été ajouté !');
     }
@@ -114,8 +114,8 @@ class CommentController extends Controller
             ->fill($input)
             ->save();
 
-        $post_id = $request->post_id;
-        return redirect()->route('article.show', compact('post_id'))
+        $article_id = $request->article_id;
+        return redirect()->route('article.show', compact('article_id'))
             ->with('success', 'Le commentaire a bien été modifié !');
     }
 

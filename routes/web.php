@@ -23,13 +23,15 @@ Route::post('article/{id}/unlike', ['as' => 'article.unlike', 'uses' => 'Article
 Route::resource('/article', 'ArticleController');
 Route::resource('/comment', 'CommentController');
 
+//ADMIN
+Route::resource('/admin', 'AdminArticleController');
+Route::resource('/adminC', 'AdminCommentController');
+
 
 Route::get('/user', function() {
     return view('user');
 });
-Route::get('/admin', function() {
-    return view('admin');
-});
+
 
 
 Route::get('/upload', function() {
