@@ -48,11 +48,11 @@
                 <ul id="menu-main" class="menu">
                     <!-- Authentication Links -->
                     @if (Auth::guest())
-                        <li><a href="{{ route('login') }}">Login</a></li>
-                        <li><a href="{{ route('register') }}">Register</a></li>
+                        <li><a href="{{ route('login') }}">Connexion</a></li>
+                        <li><a href="{{ route('register') }}">Inscription</a></li>
                     @else
-                        <li><a href="{{ url('/home') }}"class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-99">Home</a></li>
-                        <li><a href="{{ url('/article') }}" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-99">Blog</a></li>
+                        <li><a href="{{ url('/home') }}"class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-99">Accueil</a></li>
+                        <li><a href="{{ url('/article') }}" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-99">Articles</a></li>
                         <li><a href="{{ url('/article/create') }}" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-99">Publier</a></li>
                         <li><a href="{{ url('/user') }}" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-99">Profil</a></li>
                         <li><a href="{{ url('/contact') }}" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-99">Contact</a></li>
@@ -70,7 +70,7 @@
                                     <a href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        Logout
+                                        Se déconnecter
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST"

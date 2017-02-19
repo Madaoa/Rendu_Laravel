@@ -82,8 +82,8 @@
                                 <li><a href="{{ url('/user') }}" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-99">Profil</a></li>
                                 <li><a href="{{ url('/contact') }}" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-99">Contact</a></li>
                             @else
-                                <li><a href="{{ url('/login') }}">Login</a></li>
-                                <li><a href="{{ url('/register') }}">Register</a></li>
+                                <li><a href="{{ url('/login') }}">Connexion</a></li>
+                                <li><a href="{{ url('/register') }}">Inscription</a></li>
                     @endif
                 </div>
             </div>
@@ -93,15 +93,7 @@
 
         <div class="content">
             <div class="title m-b-md">
-                <h1>Rendu Laravel</h1>
-            </div>
-
-            <div class="links">
-                <a href="https://laravel.com/docs">Documentation</a>
-                <a href="https://laracasts.com">Laracasts</a>
-                <a href="https://laravel-news.com">News</a>
-                <a href="https://forge.laravel.com">Forge</a>
-                <a href="https://github.com/laravel/laravel">GitHub</a>
+                <h1>Rendu Larevel</h1>
             </div>
         </div>
     </div>

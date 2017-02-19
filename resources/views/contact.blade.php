@@ -14,31 +14,31 @@
                         {!! Form::open(['action'=>'AboutController@store', 'files'=>true]) !!}
 
                         <div class="form-group">
-                            {!! Form::label('Your Name') !!}
+                            {!! Form::label('Votre pseudo') !!}
                             {!! Form::text('name', null,
                                 array('required',
                                       'class'=>'form-control',
-                                      'placeholder'=>'Your name')) !!}
+                                      'placeholder'=>'Votre nom')) !!}
                         </div>
 
                         <div class="form-group">
-                            {!! Form::label('Your E-mail Address') !!}
+                            {!! Form::label('Votre email') !!}
                             {!! Form::text('email', null,
                                 array('required',
                                       'class'=>'form-control',
-                                      'placeholder'=>'Your e-mail address')) !!}
+                                      'placeholder'=>'Votre adresse email')) !!}
                         </div>
 
                         <div class="form-group">
-                            {!! Form::label('Your Message') !!}
+                            {!! Form::label('Votre Message') !!}
                             {!! Form::textarea('content', null,
                                 array('required',
                                       'class'=>'form-control',
-                                      'placeholder'=>'Your message')) !!}
+                                      'placeholder'=>'Votre message')) !!}
                         </div>
 
                         <div class="form-group">
-                            {!! Form::submit('Contact Us!',
+                            {!! Form::submit('Envoyer ',
                               array('class'=>'btn btn-primary')) !!}
                         </div>
                         {!! Form::close() !!}

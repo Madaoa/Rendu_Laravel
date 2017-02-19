@@ -10,7 +10,7 @@
 
 
             <div class="form-group">
-                {!! Form::label('title', 'Title:') !!}
+                {!! Form::label('title', 'Titre:') !!}
                 {!! Form::text('title', null, ['class'=>'form-control']) !!}
             </div>
 
@@ -22,12 +22,12 @@
 
 
             <div class="form-group">
-                {!! Form::label('image', 'Choose an image') !!}
+                {!! Form::label('image', 'Image de l\'article') !!}
                 {!! Form::file('image') !!}
             </div>
 
             <div class="form-group">
-                {!! Form::submit('Save', array( 'class'=>'btn btn-danger form-control' )) !!}
+                {!! Form::submit('Publier', array( 'class'=>'btn btn-danger form-control' )) !!}
             </div>
             {!! Form::close() !!}
         </div>

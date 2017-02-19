@@ -8,7 +8,7 @@
 
 
                     <div class="block">
-                        <h2 class="content-heading">You are logged in!</h2>
+                        <h2 class="content-heading">Vous êtes connecté !</h2>
 
                         @if(Auth::check())
                             <h3>Bonjour {{ Auth::user()->name }}</h3>
