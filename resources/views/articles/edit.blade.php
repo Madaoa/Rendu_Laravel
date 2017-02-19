@@ -2,15 +2,9 @@
 
 @section('content')
     <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-
-                @include('messages.errors')
-
-                <div class="panel panel-default">
-                    <div class="panel-heading">Modifier un article</div>
-
-                    <div class="panel-body">
+        @include('messages.errors')
+        <h2 class="content-heading">Editer l'article </h2>
+        <div id="form_insc">
                         <form action="{{ route('article.update', $article->id) }}" method="POST">
 
                             <input type="hidden" name="_method" value="PUT">
@@ -26,7 +20,6 @@
                                           class="form-control">{{ $article->content }}</textarea>
                             </div>
                             <div class="form-group">
-                                <img src="{!! '/images/'.$article->filePath !!}" alt="">
                                 <input type="file" name="image" >
                             </div>
 
@@ -34,7 +27,5 @@
                         </form>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
+
 @endsection

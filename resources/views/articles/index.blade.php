@@ -5,11 +5,10 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 @include('messages.success')
-                <div class="panel panel-default">
-                    <div class="panel-heading">Liste des articles</div>
-
-                    <div class="panel-body">
-                        <ul>
+                <div class="content">
+                    <div class="homepage_widget">
+                        <h2 class="content-heading">Catégorie </h2>
+                        <ul class="newsfeed">
                             @foreach($articles as $article)
                                 <li><a href="{{ route('article.show', $article->id) }}">{{ $article->title }}</a></li>
                             @endforeach

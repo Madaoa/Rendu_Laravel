@@ -5,13 +5,13 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Dashboard</div>
 
-                    <div class="panel-body">
-                        You are logged in!
+
+                    <div class="block">
+                        <h2 class="content-heading">You are logged in!</h2>
 
                         @if(Auth::check())
-                            Bonjour {{ Auth::user()->name }}
+                            <h3>Bonjour {{ Auth::user()->name }}</h3>
                         @endif
                     </div>
                 </div>

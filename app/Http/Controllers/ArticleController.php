@@ -119,19 +119,38 @@ class ArticleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $expense = Article::find($request->input('id'));
-        $expense->fill($request->only('id','title','content','filePath','user_id','created_at','updated_at'));
 
-        if($request->hasFile('filePath')) {
+        $this->validate($request,
+            [
+                'title' => 'required|min:5',
+                'content' => 'required|min:10',
+                'image' => 'required'
+            ],
+            [
+                'title.required' => 'Titre requis',
+                'title.min' => 'Minimum 5 caractères',
 
-            $file = $request->file('filePath');
+                'content.required' => 'Contenu requis',
+                'content.min' => 'Minimum 10 caractères'
+            ]);
+        $image = Article::find($id);
+        $input = $request->input();
 
-            $name = time() . '-' . $file->getClientOriginalName();
-            $expense->filePath = $name;
+
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            //getting timestamp
+            $timestamp = str_replace([' ', ':'], '-', Carbon::now()->toDateTimeString());
+
+            $name = $timestamp . '-' . $file->getClientOriginalName();
+
+            $image->filePath = $name;
+
             $file->move(public_path() . '/images/', $name);
         }
-
-        $expense->save();
+        $image
+            ->fill($input)
+            ->save($request->all());
 
         return redirect()->route('article.index')->with('success', 'L\'article a bien été modifié');;
     }

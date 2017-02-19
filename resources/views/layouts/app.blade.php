@@ -19,7 +19,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <link href="/css/app.css" rel="stylesheet">
+<link href="/css/scratch.css" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
 
@@ -40,42 +40,22 @@
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
 <div id="app">
-    <nav class="navbar navbar-default navbar-static-top">
-        <div class="container">
-            <div class="navbar-header">
-
-                <!-- Collapsed Hamburger -->
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                        data-target="#app-navbar-collapse">
-                    <span class="sr-only">Toggle Navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
-                <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-            </div>
-
-            <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                <!-- Left Side Of Navbar -->
-                <ul class="nav navbar-nav">
-                    &nbsp;
-                </ul>
+    <div id="navigation_bar">
+        <div class="container top">
+            <div id="navigation">
 
                 <!-- Right Side Of Navbar -->
-                <ul class="nav navbar-nav navbar-right">
+                <ul id="menu-main" class="menu">
                     <!-- Authentication Links -->
                     @if (Auth::guest())
                         <li><a href="{{ route('login') }}">Login</a></li>
                         <li><a href="{{ route('register') }}">Register</a></li>
                     @else
-                        <li><a href="{{ url('/home') }}">Home</a></li>
-                        <li><a href="{{ url('/article') }}">Blog</a></li>
-                        <li><a href="{{ url('/article/create') }}">Publier</a></li>
-                        <li><a href="{{ url('/user') }}">Profil</a></li>
+                        <li><a href="{{ url('/home') }}"class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-99">Home</a></li>
+                        <li><a href="{{ url('/article') }}" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-99">Blog</a></li>
+                        <li><a href="{{ url('/article/create') }}" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-99">Publier</a></li>
+                        <li><a href="{{ url('/user') }}" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-99">Profil</a></li>
+                        <li><a href="{{ url('/contact') }}" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-99">Contact</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-expanded="false">
@@ -101,10 +81,9 @@
                 </ul>
             </div>
         </div>
-    </nav>
-
-    @yield('content')
+    </div>
 </div>
+            @yield('content')
 
 <!-- Scripts -->
 <script src="/js/app.js"></script>

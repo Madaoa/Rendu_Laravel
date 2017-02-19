@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <h1>Contact TODOParrot</h1>
+
 
     <ul>
         @foreach($errors->all() as $error)
@@ -8,12 +8,9 @@
         @endforeach
     </ul>
     <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Publier un article</div>
-
-                    <div class="panel-body">
+        @include('messages.errors')
+        <h2 class="content-heading">Nous contacter </h2>
+        <div id="form_insc">
                         {!! Form::open(['action'=>'AboutController@store', 'files'=>true]) !!}
 
                         <div class="form-group">
@@ -47,8 +44,5 @@
                         {!! Form::close() !!}
                     </div>
                 </div>
-            </div>
 
-        </div>
-    </div>
     @endsection
