@@ -93,7 +93,7 @@
 
         <div class="content">
             <div class="title m-b-md">
-                <h1>Rendu Larevel</h1>
+                <h1>Rendu Laravel</h1>
             </div>
         </div>
     </div>
