@@ -15,6 +15,7 @@
                             {{ csrf_field() }}
 
                             <input type="hidden" name="_method" value="PUT">
+                            <input type="hidden" name="article_id" value="{{ $comment->article_id }}">
 
 
                             <div class="form-group">

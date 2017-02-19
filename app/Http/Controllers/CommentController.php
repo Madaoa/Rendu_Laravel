@@ -60,7 +60,7 @@ class CommentController extends Controller
 
 
 
-        $id = $input['post_id'];
+        $id = $input['article_id'];
         return redirect()->route('article.show', compact('id'))
             ->with('success', 'Le commentaire a bien été ajouté !');
     }
@@ -100,11 +100,11 @@ class CommentController extends Controller
     {
         $this->validate($request,
             [
-                'content' => 'required|min:10'
+                'content' => 'required|min:1'
             ],
             [
                 'content.required' => 'Contenu requis',
-                'content.min' => 'Minimum 10 caractères'
+                'content.min' => 'Minimum 1 caractères'
             ]);
 
         $comment = Comment::find($id);
@@ -114,8 +114,8 @@ class CommentController extends Controller
             ->fill($input)
             ->save();
 
-
-        return redirect()->route('article.index')
+        $article_id = $request->article_id;
+        return redirect()->route('article.show', compact('article_id'))
             ->with('success', 'Le commentaire a bien été modifié !');
     }
 

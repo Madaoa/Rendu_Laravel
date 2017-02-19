@@ -163,11 +163,33 @@ class ArticleController extends Controller
      */
     public function destroy($id)
     {
+        $comments= Comment::paginate();
         $article = Article::find($id);
-        $article->delete();
+        foreach($comments as $comment){
+            if ($comment['article_id']==$id){
+                $comment->delete();
+            }
+        }
 
+        $article->delete();
         return redirect()->route('article.index')->with('success', 'L\'article a bien été supprimé');
     }
 
+    public function like($id)
+    {
+        $article = Article::find($id);
+        $article->like();
+
+        return redirect()->route('article.show', compact('id'))
+            ->with('success', 'Vous aimez cet article !');
+    }
+    public function unlike($id)
+    {
+        $article = Article::find($id);
+        $article->unlike();
+
+        return redirect()->route('article.show', compact('id'))
+            ->with('success', 'Vous n\'aimez plus cet article !');
+    }
 
 }

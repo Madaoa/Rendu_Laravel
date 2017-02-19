@@ -20,7 +20,7 @@
 
     <!-- Styles -->
 <link href="/css/scratch.css" rel="stylesheet">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/font-awesome.css">
 
 
     <!-- Scripts -->
@@ -56,6 +56,9 @@
                         <li><a href="{{ url('/article/create') }}" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-99">Publier</a></li>
                         <li><a href="{{ url('/user') }}" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-99">Profil</a></li>
                         <li><a href="{{ url('/contact') }}" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-99">Contact</a></li>
+                        @if (Auth::user()->isAdmin == 1)
+                            <li><a href="{{ url('/admin') }}">Administration</a></li>
+                        @endif
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-expanded="false">

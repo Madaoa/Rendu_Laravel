@@ -18,19 +18,30 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+Route::post('article/{id}/like', ['as' => 'article.like', 'uses' => 'ArticleController@like']);
+Route::post('article/{id}/unlike', ['as' => 'article.unlike', 'uses' => 'ArticleController@unlike']);
 Route::resource('/article', 'ArticleController');
 Route::resource('/comment', 'CommentController');
+
+//ADMIN
+Route::resource('/admin', 'AdminArticleController');
+Route::resource('/adminC', 'AdminCommentController');
 
 
 Route::get('/user', function() {
     return view('user');
 });
-Route::get('/admin', function() {
-    return view('admin');
+
+
+
+Route::get('/upload', function() {
+    return View::make('imageupload');
 });
+
 
 Route::get('contact',
     ['as' => 'contact', 'uses' => 'AboutController@create']);
 Route::post('contact',
     ['as' => 'contact_store', 'uses' => 'AboutController@store']);
+
 

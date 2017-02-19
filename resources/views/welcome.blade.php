@@ -9,6 +9,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <link href="/css/scratch.css" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
         <style>
@@ -65,32 +66,48 @@
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
-                        <a href="{{ url('/user') }}">Profil</a>
-                    @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
+    <div id="app">
+        <div id="navigation_bar">
+            <div class="container top">
+                <div id="navigation">
+
+                    <!-- Right Side Of Navbar -->
+                    <ul id="menu-main" class="menu">
+                        @if (Route::has('login'))
+
+                            @if (Auth::check())
+                                <li><a href="{{ url('/home') }}"class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-99">Home</a></li>
+                                <li><a href="{{ url('/article') }}" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-99">Blog</a></li>
+                                <li><a href="{{ url('/article/create') }}" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-99">Publier</a></li>
+                                <li><a href="{{ url('/user') }}" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-99">Profil</a></li>
+                                <li><a href="{{ url('/contact') }}" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-99">Contact</a></li>
+                            @else
+                                <li><a href="{{ url('/login') }}">Login</a></li>
+                                <li><a href="{{ url('/register') }}">Register</a></li>
                     @endif
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>
             </div>
         </div>
+
+        @endif
+
+        <div class="content">
+            <div class="title m-b-md">
+                <h1>Rendu Laravel</h1>
+            </div>
+
+            <div class="links">
+                <a href="https://laravel.com/docs">Documentation</a>
+                <a href="https://laracasts.com">Laracasts</a>
+                <a href="https://laravel-news.com">News</a>
+                <a href="https://forge.laravel.com">Forge</a>
+                <a href="https://github.com/laravel/laravel">GitHub</a>
+            </div>
+        </div>
+    </div>
+    <div class="name">
+        <p>Adam <strong>ALET</strong></p>
+        <p>Jérémy <strong>BOUREL</strong></p>
+    </div>
     </body>
 </html>

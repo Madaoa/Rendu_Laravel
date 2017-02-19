@@ -13,9 +13,17 @@
     "require": {
         "php": ">=5.6.4",
         "guzzlehttp/guzzle": "^6.2",
+        "illuminate/contracts": "5.4.*",
+        "illuminate/html": "5.0.*@dev",
+        "illuminate/session": "5.4.9",
+        "illuminate/support": "5.4.*",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
-        "laravelcollective/html": "^5.4.0"
+        "laravelcollective/html": "^5.4.0",
+        "nesbot/carbon": "~1.20",
+        "rtconner/laravel-likeable": "~1.2",
+        "symfony/finder": "~3.2",
+        "symfony/http-foundation": "~3.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

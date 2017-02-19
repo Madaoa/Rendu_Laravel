@@ -1,12 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
-                <div class="panel-body">
+    <div class="container">
+        <div class="row">
+            <h2 class="content-heading">Inscription</h2>
+            <div id="form_insc">
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
 
@@ -59,7 +57,10 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div>
-
+                        <select name="isAdmin">
+                            <option value="0">Utilisateur</option>
+                            <option value="1">Administrateur</option>
+                        </select>
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
